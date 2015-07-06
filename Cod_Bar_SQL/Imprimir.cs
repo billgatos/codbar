@@ -15,7 +15,7 @@ namespace Cod_Bar_SQL
             // TODO: This line of code loads data into the 'Pesagens_LotesDataSet.Pesos_lote' table. You can move, or remove it, as needed.
             this.Pesos_loteTableAdapter.Fill(this.Pesagens_LotesDataSet.Pesos_lote);
             // TODO: This line of code loads data into the 'pesagens_Lotes.Pesos_lote' table. You can move, or remove it, as needed.
-           
+
             this.reportViewer1.RefreshReport();
         }
 
@@ -25,7 +25,6 @@ namespace Cod_Bar_SQL
 
         private void Pesos_loteBindingSource_CurrentChanged(object sender, EventArgs e)
         {
-
         }
     }
 }

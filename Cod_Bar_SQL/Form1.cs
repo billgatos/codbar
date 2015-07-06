@@ -17,7 +17,6 @@ namespace Cod_Bar_SQL
 
             SqlConnection ligacao = new SqlConnection(conexaosql);
 
-
             ligacao.Open();
             SqlCommand eliminar = new SqlCommand("delete from pesos_lote", ligacao);
             eliminar.ExecuteNonQuery();
@@ -33,6 +32,7 @@ namespace Cod_Bar_SQL
             ///Tentar definir a textbox para ler os carateres GS1, concretamente o 1D hex
             //this.tcodigo.ImeMode = Encoding.UTF8;
         }
+
         //Função para saber qual a versão que está nas propriedades ao efectuar o publish da Aplicação
         public string PublishVersion
         {
@@ -47,6 +47,7 @@ namespace Cod_Bar_SQL
                     return "Not Published";
             }
         }
+
         //Função para a interpretação do Lote em cada código de barras lido.
         public string BCLote(string texto_analisar, int poslote, int tamposlote, int tamlote)
         {
@@ -64,6 +65,7 @@ namespace Cod_Bar_SQL
             }
             return lote;
         }
+
         //Função para calculo do peso em cada código de barras lido
         public double BCPeso(string texto_analisar, int decim, int pospeso, int tampeso, int tipoBC)
         {
@@ -105,6 +107,7 @@ namespace Cod_Bar_SQL
                             j = j * 10;
                         }
                         break;
+
                     default:
                         break;
                 }
@@ -144,6 +147,7 @@ namespace Cod_Bar_SQL
                             j = j * 10;
                         }
                         break;
+
                     default:
                         break;
                 }
@@ -237,6 +241,7 @@ namespace Cod_Bar_SQL
                                         pes = BCPeso(tcodigo.Text.ToString(), decim, pospeso, 6, 0);
                                     }
                                     break;
+
                                 default:
                                     break;
                             }
@@ -298,11 +303,13 @@ namespace Cod_Bar_SQL
                                         pes = BCPeso(tcodigo.Text.ToString(), decim, pospeso, 6, 0);
                                     }
                                     break;
+
                                 default:
                                     break;
                             }
                         }
                         break;
+
                     default:
                         break;
                 }
@@ -319,6 +326,7 @@ namespace Cod_Bar_SQL
                             pes = BCPeso(tcodigo.Text.ToString(), decim, 7, 0, 29);
                         }
                         break;
+
                     default:
                         break;
                 }
@@ -392,6 +400,7 @@ namespace Cod_Bar_SQL
                                     pes = BCPeso(tcodigo.Text.ToString(), decim, pospeso, 6, 0);
                                 }
                                 break;
+
                             case "DB":
                                 {
                                     //para códigos ucc CG
@@ -404,6 +413,7 @@ namespace Cod_Bar_SQL
                                     pes = BCPeso(tcodigo.Text.ToString(), decim, pospeso, 6, 0);
                                 }
                                 break;
+
                             default:
                                 break;
                         }
@@ -417,7 +427,7 @@ namespace Cod_Bar_SQL
                 SqlConnection ligacao = new SqlConnection(conexaosql);
 
                 ligacao.Open();
-                SqlCommand inserção = new SqlCommand("insert into Pesos_lote (id,lote,peso,data) values((Select isnull(Max(id),0)+1 as id from pesos_lote (nolock)),'" + 
+                SqlCommand inserção = new SqlCommand("insert into Pesos_lote (id,lote,peso,data) values((Select isnull(Max(id),0)+1 as id from pesos_lote (nolock)),'" +
                     tlote.ToString() + "','" + tpeso.ToString() + "',convert(char(10),getdate(),112))", ligacao);
                 inserção.ExecuteNonQuery();
                 ligacao.Close();
@@ -462,8 +472,7 @@ namespace Cod_Bar_SQL
         private void Form1_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'pesagens_LotesDataSet.Pesos_lote' table. You can move, or remove it, as needed.
-            this.pesos_loteTableAdapter.Fill(this.pesagens_LotesDataSet.Pesos_lote);  
-         
+            this.pesos_loteTableAdapter.Fill(this.pesagens_LotesDataSet.Pesos_lote);
         }
 
         private void btnPrint_Click(object sender, EventArgs e)
@@ -496,7 +505,6 @@ namespace Cod_Bar_SQL
 
         private void pesosloteBindingSource_CurrentChanged(object sender, EventArgs e)
         {
-
         }
 
         private void button1_Click(object sender, EventArgs e)
