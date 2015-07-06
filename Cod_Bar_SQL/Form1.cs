@@ -462,7 +462,8 @@ namespace Cod_Bar_SQL
         private void Form1_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'pesagens_LotesDataSet.Pesos_lote' table. You can move, or remove it, as needed.
-            this.pesos_loteTableAdapter.Fill(this.pesagens_LotesDataSet.Pesos_lote);           
+            this.pesos_loteTableAdapter.Fill(this.pesagens_LotesDataSet.Pesos_lote);  
+         
         }
 
         private void btnPrint_Click(object sender, EventArgs e)
